@@ -1,0 +1,28 @@
+微信支付账单明细 微信昵称：[Q·ð 起始时间：[2025-04-10 09:40:16] 终止时间：[2025-04-18 19:55:33]
+----------------------Reminder Details List----------------------
+Type,Reminder name,Reminder Category,Amount Range,Note
+"Reminder","Pension planning","For expense monitoring","¥500-700","Better to spend less than 500-700"
+"Reminder","Loan repayment","For savings","¥30-50","Save money for the loan"
+----------------------WeChat Payment Statement Details List--------------------
+Transaction Time,Transaction Type,Counterparty,Product,Income/Expense,Amount (Yuan),Payment Method,Current Status,Transaction Number,Merchant Number,Note
+"2024-02-20 12:36:38","Merchant Consumption","Taobao","Canon EOS R10 entry level micro single half frame camera","Expenditure","¥8900","Bank card ","Transaction successful ","3784721005081170437","",""
+"2024-03-13 01:14:06","Merchant Consumption","Jingdong","Youbasket ulanzi youbasket vl49rgb magnetic absorption fill light","Expenditure","¥168","Change money","Transaction successful ","291038843720","",""
+"2024-03-13 01:14:15","Merchant Consumption","Jingdong","Youbasket ulanzi VT02 aluminum alloy tripod hydraulic pan tilt","Expenditure","¥159","Change money","Transaction successful ","290970566478","",""
+"2024-03-13 15:07:01","Merchant Consumption","Taobao","Canon rf50 1.8 full frame standard fixed focus lens","Expenditure","¥1896","Yu'ebao","Transaction successful ","3811608362408170437","",""
+"2024-03-19 01:08:20","Merchant Consumption","Jingdong","Beiyang 60cm two in one reflector","Expenditure","¥18.80","Change money","Transaction successful ","291246503146","",""
+"2025-04-15 15:09:11","Merchant Consumption","Yuxi Technology","Pay after purchase","Expenditure","¥5.00","Change","Payment successful","","",""
+"2025-04-15 14:46:25","Merchant Consumption","BUPT","Meal expense","Expenditure","¥15.00","Change","Payment successful","","",""
+"2025-04-15 09:35:19","Merchant Consumption","BUPT","Meal expense","Expenditure","¥9.00","Change","Payment successful","","",""
+"2024-06-16 08:51:43","Merchant Consumption","Taobao","Seven craftsman round filter bag","Expenditure","¥58.6","Yu'ebao","Transaction successful ","3933089677324170437","",""
+"2024-11-07 21:28:11","Merchant Consumption","Taobao","Kase color black-mist filter","Expenditure","¥111.92","Yu'ebao","Transaction successful ","4118000978155170437","",""
+"2024-11-07 21:28:12","Merchant Consumption","Taobao","Kase color filter threaded adapter ring","Expenditure","¥26.53","Yu'ebao","Transaction successful ","4118000978158170437","",""
+"2024-11-08 14:38:57","Transfer","BUPT","Sports and publicity service fee","Income","¥1280","Bank card ","Transaction successful ","","",""
+"2024-12-11 15:19:40","Merchant Consumption","Taobao","Godox flash TT520II","Expenditure","¥215.98","Yu'ebao","Transaction successful ","4161612062816170437","",""
+"2024-12-15 02:42:29","Merchant Consumption","Taobao","No.5 rechargeable battery pack AA fast charge","Expenditure","¥48","Yu'ebao","Transaction successful ","4166740587775170437","",""
+"2024-12-22 21:12:57","Merchant Consumption","Taobao","Canon rf16f2.8 STM full frame digital micro single ultra wide angle fixed focus lens","Expenditure","¥1644","Huabei","Transaction successful ","4176217476860170437","",""
+"2025-03-07 19:02:10","Transfer","Liu Shuning","Labor cost of college student press corps","Income","¥200","Change money","Transaction successful ","","",""
+"2025-03-14 09:43:42","Transfer","BUPT","Labor cost of national flag guard","Income","¥200","Bank card ","Transaction successful ","","",""
+"2025-03-19 12:11:15","Merchant Consumption","Taobao","Suitable for Insta360ace pro2/1 accessories sports camera chest strap","Expenditure","¥21.91","Yu'ebao","Transaction successful ","4270121496271170437","",""
+"2025-03-23 07:17:56","Merchant Consumption","Taobao","Ulanzi basket APS-C sensor cleaning liquid cleaning rod","Expenditure","¥15.9","Yu'ebao","Transaction successful ","4274697096536170437","",""
+"2025-04-02 20:12:16","Transfer","Leah","Campus quality content incentives","Income","¥400","Change money","Transaction successful ","","",""
+"2025-04-21 12:43:03","Transfer","BUPT","Student service fee","Income","¥400","Bank card ","Transaction successful ","","",""

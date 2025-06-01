@@ -1,0 +1,43 @@
+@startuml C4_Context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_WITH_LEGEND($legendPosition="right", $legendAlign="top")
+
+title System Context diagram for Nutllet Financial Management System
+
+' 定义用户角色
+Person(customer, "Customer", "A user of the Nutllet system who wants to manage their finances")
+Person(enterprise_user, "Enterprise User", "A business user who needs enterprise financial management")
+Person(admin, "System Administrator", "Manages system configuration and user access")
+
+' 定义核心系统
+System(nutllet_system, "Nutllet Financial Management System", "Allows users to manage their personal and business finances, track expenses, and analyze financial data using CSV files for storage")
+
+' 定义本地系统
+System_Ext(transaction_system, "Transaction Management System", "Manages financial transactions")
+System_Ext(classifier_system, "Intelligent Transaction Classifier", "Classifies transactions using local Qwen2:1.5b model")
+System_Ext(bank_data_system, "Bank Data Management", "Manages bank transaction data")
+System_Ext(reimbursement_system, "Reimbursement List", "Manages reimbursement records")
+System_Ext(international_system, "International List", "Manages international transactions")
+System_Ext(mailbox_system, "Mailbox System", "Handles local email notifications")
+System_Ext(seasonal_system, "Seasonal Spike", "Manages holiday financial planning")
+System_Ext(analysis_system, "Financial Analysis", "Provides financial analysis")
+System_Ext(reminder_system, "Reminder System", "Manages financial reminders")
+
+' 定义用户与系统的关系
+Rel(customer, nutllet_system, "Uses", "Local Desktop")
+Rel(enterprise_user, nutllet_system, "Uses", "Local Desktop")
+Rel(admin, nutllet_system, "Manages", "Local Desktop")
+
+' 定义系统与本地系统的关系
+Rel(nutllet_system, transaction_system, "Uses", "Local")
+Rel(nutllet_system, classifier_system, "Uses", "Local Qwen2:1.5b")
+Rel(nutllet_system, bank_data_system, "Uses", "Local CSV")
+Rel(nutllet_system, reimbursement_system, "Uses", "Local CSV")
+Rel(nutllet_system, international_system, "Uses", "Local CSV")
+Rel(nutllet_system, mailbox_system, "Uses", "Local")
+Rel(nutllet_system, seasonal_system, "Uses", "Local CSV")
+Rel(nutllet_system, analysis_system, "Uses", "Local")
+Rel(nutllet_system, reminder_system, "Uses", "Local")
+
+@enduml 

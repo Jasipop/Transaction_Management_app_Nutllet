@@ -1,0 +1,66 @@
+@startuml C4_Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND($legendPosition="right", $legendAlign="top")
+
+title Container diagram for Nutllet Financial Management System
+
+' 定义用户角色
+Person(customer, "Customer", "A user of the Nutllet system who wants to manage their finances")
+Person(enterprise_user, "Enterprise User", "A business user who needs enterprise financial management")
+
+' 定义系统边界和内部容器
+System_Boundary(nutllet_system, "Nutllet Financial Management System") {
+    ' 前端应用
+    Container(desktop_app, "Web Application", "React, TypeScript", "Delivers the web interface to users")
+    
+    ' 核心服务
+    Container(transaction_service, "Transaction Service", "Spring Boot", "Manages financial transactions")
+    Container(classifier_service, "Intelligent Classifier", "Spring Boot + Qwen2:1.5b", "Classifies transactions using local AI model")
+    Container(bank_data_service, "Bank Data Service", "Spring Boot", "Manages bank transaction data")
+    Container(reimbursement_service, "Reimbursement Service", "Spring Boot", "Manages reimbursement records")
+    Container(international_service, "International Service", "Spring Boot", "Manages international transactions")
+    Container(mailbox_service, "Mailbox Service", "Spring Boot", "Handles local email notifications")
+    Container(seasonal_service, "Seasonal Service", "Spring Boot", "Manages holiday financial planning")
+    Container(analysis_service, "Analysis Service", "Spring Boot", "Provides financial analysis")
+    Container(reminder_service, "Reminder Service", "Spring Boot", "Manages financial reminders")
+    
+    ' 文件存储
+    ContainerDb(transaction_files, "Transaction Files", "CSV", "Stores transaction data")
+    ContainerDb(bank_data_files, "Bank Data Files", "CSV", "Stores bank transaction data")
+    ContainerDb(reimbursement_files, "Reimbursement Files", "CSV", "Stores reimbursement records")
+    ContainerDb(international_files, "International Files", "CSV", "Stores international transactions")
+    ContainerDb(seasonal_files, "Seasonal Files", "CSV", "Stores holiday planning data")
+    ContainerDb(analysis_files, "Analysis Files", "CSV", "Stores financial analysis data")
+    ContainerDb(cache, "Cache", "Redis", "Caches frequently accessed data")
+}
+
+' 定义用户与前端的关系
+Rel(customer, desktop_app, "Uses", "Local")
+Rel(enterprise_user, desktop_app, "Uses", "Local")
+
+' 定义前端与核心服务的关系
+Rel(desktop_app, transaction_service, "Makes calls to", "Local")
+Rel(desktop_app, classifier_service, "Makes calls to", "Local")
+Rel(desktop_app, bank_data_service, "Makes calls to", "Local")
+Rel(desktop_app, reimbursement_service, "Makes calls to", "Local")
+Rel(desktop_app, international_service, "Makes calls to", "Local")
+Rel(desktop_app, mailbox_service, "Makes calls to", "Local")
+Rel(desktop_app, seasonal_service, "Makes calls to", "Local")
+Rel(desktop_app, analysis_service, "Makes calls to", "Local")
+Rel(desktop_app, reminder_service, "Makes calls to", "Local")
+
+' 定义服务与文件存储的关系
+Rel(transaction_service, transaction_files, "Reads from and writes to", "CSV")
+Rel(bank_data_service, bank_data_files, "Reads from and writes to", "CSV")
+Rel(reimbursement_service, reimbursement_files, "Reads from and writes to", "CSV")
+Rel(international_service, international_files, "Reads from and writes to", "CSV")
+Rel(seasonal_service, seasonal_files, "Reads from and writes to", "CSV")
+Rel(analysis_service, analysis_files, "Reads from and writes to", "CSV")
+
+' 定义缓存关系
+Rel(transaction_service, cache, "Caches data in", "Local")
+Rel(classifier_service, cache, "Caches model in", "Local")
+Rel(analysis_service, cache, "Caches results in", "Local")
+
+@enduml 

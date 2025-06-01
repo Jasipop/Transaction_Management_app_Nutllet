@@ -1,0 +1,51 @@
+@startuml C4_Component
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND($legendPosition="right", $legendAlign="top")
+
+title Component diagram for Nutllet Financial Management System -  Service
+
+' 定义交易服务边界
+Container_Boundary(transaction_service, "Service") {
+    ' 控制器层
+    Component(transaction_controller, "Transaction Controller", "Spring MVC Controller", "Handles requests for transaction operations")
+    
+    ' 服务层
+    Component(transaction_service_impl, "Transaction Service Implementation", "Spring Service", "Implements transaction business logic")
+    
+    ' 数据访问层
+    Component(transaction_repository, "Transaction Repository", "Spring Component", "Handles transaction data persistence using CSV")
+    
+    ' AI 组件
+    Component(ai_service, "AI Service", "Spring Component", "Manages local Qwen2:1.5b model")
+    Component(transaction_classifier, "Transaction Classifier", "Spring Component", "Classifies transactions using AI")
+    Component(transaction_analytics, "Transaction Analytics", "Spring Component", "Provides AI-powered transaction analytics")
+    
+    ' 业务组件
+    Component(transaction_validator, "Transaction Validator", "Spring Component", "Validates transaction data")
+    Component(transaction_notifier, "Transaction Notifier", "Spring Component", "Handles transaction-related notifications")
+    Component(cache_manager, "Cache Manager", "Spring Component", "Manages transaction data caching")
+    
+    ' 文件存储
+    ComponentDb(transaction_files, "Transaction Files", "CSV", "Stores transaction data")
+    ComponentDb(cache_db, "Local CSV", "Redis", "Caches transaction data")
+}
+
+' 定义内部组件关系
+Rel(transaction_controller, transaction_service_impl, "Uses", "Spring Dependency Injection")
+Rel(transaction_service_impl, transaction_repository, "Uses", "Spring Dependency Injection")
+Rel(transaction_service_impl, transaction_validator, "Uses", "Spring Dependency Injection")
+Rel(transaction_service_impl, transaction_notifier, "Uses", "Spring Dependency Injection")
+Rel(transaction_service_impl, cache_manager, "Uses", "Spring Dependency Injection")
+
+' 定义AI组件关系
+Rel(transaction_service_impl, ai_service, "Uses", "Spring Dependency Injection")
+Rel(ai_service, transaction_classifier, "Provides AI model to", "Local")
+Rel(ai_service, transaction_analytics, "Provides AI model to", "Local")
+Rel(transaction_classifier, transaction_analytics, "Shares classification data with", "Local")
+
+' 定义文件存储关系
+Rel(transaction_repository, transaction_files, "Reads from and writes to", "CSV")
+Rel(cache_manager, cache_db, "Reads from and writes to", "Local")
+
+@enduml 
